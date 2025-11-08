@@ -9,9 +9,11 @@ const Navbar = () => {
     const { user, logOut } = use(AuthContext);
     console.log(user)
 
-    const links = <>
+    const links = <div className='space-x-3'>
         <NavLink to={'/'}>Home</NavLink>
-    </>
+        <NavLink to={'/courses'}>Courses</NavLink>
+        <NavLink to={'/dashboard'}>Dashboard</NavLink>
+    </div>
 
     const handleLogOut = () =>{
         logOut()
