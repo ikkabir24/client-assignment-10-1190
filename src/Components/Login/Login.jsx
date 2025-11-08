@@ -4,6 +4,7 @@ import { MdOutlineRemoveRedEye } from 'react-icons/md';
 import { Link } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
 import LoadingPage from '../LoadingPage/LoadingPage';
+import { toast } from 'react-toastify';
 
 const Login = () => {
 
@@ -22,10 +23,10 @@ const Login = () => {
             .then(result => {
                 setUser(result.user);
                 setLoading(false);
-                alert('Logged in successfully..!');
+                toast('Logged in successfully..!');
             })
             .catch(error => {
-                alert(error.message);
+                toast(error.message);
             })
 
     }
@@ -36,10 +37,10 @@ const Login = () => {
             .then(result => {
                 setUser(result.user);
                 setLoading(false);
-                alert('Logged in successfully..!')
+                toast('Logged in successfully..!')
             })
             .catch(error => {
-                alert(error.message);
+                toast(error.message);
             })
     }
 

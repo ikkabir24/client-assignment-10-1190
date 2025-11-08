@@ -4,6 +4,7 @@ import { MdOutlineRemoveRedEye } from 'react-icons/md';
 import { Link } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
 import LoadingPage from '../LoadingPage/LoadingPage';
+import { toast } from 'react-toastify';
 
 const Register = () => {
 
@@ -32,7 +33,7 @@ const Register = () => {
                     .then(() => {
                         setUser({ ...newUser, displayName: name, photoURL });
                         setLoading(false);
-                        alert('Registration successfull..!')
+                        toast('Registration successfull..!')
                     })
                     .catch(error => {
                         console.log(error.message)
@@ -40,7 +41,7 @@ const Register = () => {
 
             })
             .catch(error => {
-                alert(error.message);
+                toast(error.message);
             })
     }
 
@@ -50,10 +51,10 @@ const Register = () => {
             .then(result => {
                 setUser(result.user);
                 setLoading(false)
-                alert('Logged in successfully..!')
+                toast('Logged in successfully..!')
             })
             .catch(error => {
-                alert(error.message);
+                toast(error.message);
             })
     }
 

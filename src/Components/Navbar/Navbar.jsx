@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router';
 import userAvatar from '../../assets/user.png';
 import { AuthContext } from '../../provider/AuthProvider';
 import { LuLogIn, LuLogOut, LuUserRoundPlus } from 'react-icons/lu';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
 
@@ -11,7 +12,7 @@ const Navbar = () => {
 
     const links = <div className='space-x-3'>
         <NavLink to={'/'}>Home</NavLink>
-        <NavLink to={'/courses'}>Courses</NavLink>
+        <NavLink to={'/allCourses'}>All Courses</NavLink>
         <NavLink to={'/dashboard'}>Dashboard</NavLink>
     </div>
 
@@ -19,10 +20,10 @@ const Navbar = () => {
         logOut()
         .then(result=>{
             console.log(result);
-            alert('Logged out successfully..!')
+            toast('Logged out successfully..!')
         })
         .catch(error => {
-            alert(error.message);
+            toast(error.message);
         })
     }
 
