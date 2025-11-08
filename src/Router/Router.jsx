@@ -11,6 +11,7 @@ import MyCreations from "../Components/MyCreations/MyCreations";
 import CourseDetails from "../Components/CourseDetails/CourseDetails";
 import CreateCourse from "../Components/MyCreations/CreateCourse";
 import UpdateCourse from "../Components/MyCreations/UpdateCourse";
+import MyEnrolements from "../Components/MyEnrolements/MyEnrolements";
 
 const router = createBrowserRouter(
     [
@@ -33,17 +34,23 @@ const router = createBrowserRouter(
                     element: <PrivateRoute><MyCreations></MyCreations></PrivateRoute>
                 },
                 {
+                    path: '/myEnrolements',
+                    element: <PrivateRoute><MyEnrolements></MyEnrolements></PrivateRoute>
+                },
+                {
                     path: '/createCourse',
                     element: <PrivateRoute><CreateCourse></CreateCourse></PrivateRoute>
                 },
                 {
                     path: '/updateCourse/:id',
                     loader:({params})=>fetch(`http://localhost:3000/courses/${params.id}`),
+                    HydrateFallback: LoadingPage,
                     element: <PrivateRoute><UpdateCourse></UpdateCourse></PrivateRoute>
                 },
                 {
                     path: '/courseDetails/:id',
                     loader: ({params})=>fetch(`http://localhost:3000/courses/${params.id}`),
+                    HydrateFallback:LoadingPage,
                     element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>
                 },
                 {

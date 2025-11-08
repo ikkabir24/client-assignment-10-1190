@@ -10,14 +10,17 @@ const Navbar = () => {
     const { user, logOut } = use(AuthContext);
     console.log(user)
 
-    const links = <div className='space-x-3'>
+    const links = <ul className='flex flex-col md:flex-row space-x-3'>
         <NavLink to={'/'}>Home</NavLink>
         <NavLink to={'/allCourses'}>All Courses</NavLink>
         {
             user && <NavLink to={'/myCreations'}>My Courses</NavLink>
         }
+        {
+            user && <NavLink to={'/MyEnrolements'}>My Enrolements</NavLink>
+        }
         <NavLink to={'/dashboard'}>Dashboard</NavLink>
-    </div>
+    </ul>
 
     const handleLogOut = () =>{
         logOut()
@@ -39,7 +42,7 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex="-1"
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        className="menu flex-row menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                         {links}
                     </ul>
                 </div>

@@ -1,21 +1,35 @@
-import React from 'react';
+import React, { use } from 'react';
 import { BiWallet } from 'react-icons/bi';
 import { FaStar } from 'react-icons/fa';
 import { FaCalendar } from 'react-icons/fa6';
 import { useLoaderData } from 'react-router';
 import { toast } from 'react-toastify';
+import { AuthContext } from '../../provider/AuthProvider';
+import axios from 'axios';
 
 const CourseDetails = () => {
+
+    const {user} = use(AuthContext);
 
     const course = useLoaderData();
     console.log(course);
 
     const handleEnroll = () => {
-        toast('Successfully Enrolled..!')
+        
+        const newEnrol = {
+            title: course.title,
+            imageUrl: course.imageUrl,
+            enroledBy: user.email
+        }
+        
+        axios.post('http://localhost:3000/enrolements', newEnrol)
+        .then(()=>{
+            toast('Successfully Enrolled..!');
+        })
     }
 
     return (
-        <div className="max-w-4xl mx-auto bg-base-200 rounded-lg shadow-lg overflow-hidden md:flex">
+        <div className="max-w-4xl mx-auto bg-base-200 p-3 rounded-lg shadow-lg overflow-hidden md:flex">
             <div className="md:w-1/2 h-64 md:h-auto">
                 <img
                     src={course.imageUrl}
