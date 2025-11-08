@@ -9,6 +9,8 @@ import LoadingPage from "../Components/LoadingPage/LoadingPage";
 import PrivateRoute from "../provider/PrivateRoute";
 import MyCreations from "../Components/MyCreations/MyCreations";
 import CourseDetails from "../Components/CourseDetails/CourseDetails";
+import CreateCourse from "../Components/MyCreations/CreateCourse";
+import UpdateCourse from "../Components/MyCreations/UpdateCourse";
 
 const router = createBrowserRouter(
     [
@@ -31,7 +33,17 @@ const router = createBrowserRouter(
                     element: <PrivateRoute><MyCreations></MyCreations></PrivateRoute>
                 },
                 {
+                    path: '/createCourse',
+                    element: <PrivateRoute><CreateCourse></CreateCourse></PrivateRoute>
+                },
+                {
+                    path: '/updateCourse/:id',
+                    loader:({params})=>fetch(`http://localhost:3000/courses/${params.id}`),
+                    element: <PrivateRoute><UpdateCourse></UpdateCourse></PrivateRoute>
+                },
+                {
                     path: '/courseDetails/:id',
+                    loader: ({params})=>fetch(`http://localhost:3000/courses/${params.id}`),
                     element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>
                 },
                 {

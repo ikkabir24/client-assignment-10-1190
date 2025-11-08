@@ -13,6 +13,9 @@ const Navbar = () => {
     const links = <div className='space-x-3'>
         <NavLink to={'/'}>Home</NavLink>
         <NavLink to={'/allCourses'}>All Courses</NavLink>
+        {
+            user && <NavLink to={'/myCreations'}>My Courses</NavLink>
+        }
         <NavLink to={'/dashboard'}>Dashboard</NavLink>
     </div>
 

@@ -16,8 +16,8 @@ const Banner = () => {
             <Link to={'/allCourses'}><button className="btn btn-outline btn-light">Explore Courses</button></Link>
             {
               user
-              ? <Link to='/'><button className="btn btn-light text-indigo-600">Become a Creator</button></Link>
-              : <Link><button className="btn btn-light text-indigo-600">Become a Creator</button></Link>
+              ? <Link to='/createCourse'><button className="btn btn-light text-indigo-600">Create A Course</button></Link>
+              : <Link to='/register'><button className="btn btn-light text-indigo-600">Create A Course</button></Link>
             }
           </div>
         </div>
