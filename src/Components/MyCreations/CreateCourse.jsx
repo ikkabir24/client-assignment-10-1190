@@ -30,6 +30,10 @@ const CreateCourse = () => {
         .then(()=>{
             toast("Congratulations, You've successfully created your course..!")
         })
+        .catch(error=>{
+            toast(error.message)
+            console.log(error)
+        })
 
         console.log(newCourse);
     }

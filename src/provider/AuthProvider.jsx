@@ -12,7 +12,8 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
 
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(null);
+    const [userLoad, setUserLoad] = useState(true);
 
 
     // create a user using email and pass
@@ -44,7 +45,8 @@ const AuthProvider = ({ children }) => {
     // set observer
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser)
+            setUser(currentUser);
+            setUserLoad(false);
         })
         return () => {
             unsubscribe();
@@ -60,6 +62,8 @@ const AuthProvider = ({ children }) => {
         googleSignIn,
         user,
         setUser,
+        userLoad,
+        setUserLoad
     }
 
     return <AuthContext value={authData}>

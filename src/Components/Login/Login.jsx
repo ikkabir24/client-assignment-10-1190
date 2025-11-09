@@ -1,7 +1,7 @@
 import React, { use, useState } from 'react';
 import { FaRegEyeSlash } from 'react-icons/fa';
 import { MdOutlineRemoveRedEye } from 'react-icons/md';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
 import LoadingPage from '../LoadingPage/LoadingPage';
 import { toast } from 'react-toastify';
@@ -10,20 +10,39 @@ const Login = () => {
 
     const { login, setUser, googleSignIn } = use(AuthContext);
 
+    const location = useLocation();
+    const navigate = useNavigate();
+
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('')
 
     const handleLogin = (e) => {
         e.preventDefault();
 
         const email = e.target.email.value;
         const password = e.target.password.value;
+
+        const hasUppercase = /[A-Z]/.test(password);
+        const hasLowercase = /[a-z]/.test(password);
+        const isLongEnough = password.length >= 6;
+
+        if (!hasUppercase || !hasLowercase || !isLongEnough) {
+            setError('Password must contain at least one uppercase letter, one lowercase letter, and be at least 6 characters long.');
+            
+            return;
+        }
+
         setLoading(true)
         login(email, password)
             .then(result => {
                 setUser(result.user);
                 setLoading(false);
                 toast('Logged in successfully..!');
+                navigate(`${location.state
+                        ? location.state
+                        : '/'
+                    }`)
             })
             .catch(error => {
                 toast(error.message);
@@ -37,7 +56,11 @@ const Login = () => {
             .then(result => {
                 setUser(result.user);
                 setLoading(false);
-                toast('Logged in successfully..!')
+                toast('Logged in successfully..!');
+                navigate(`${location.state
+                        ? location.state
+                        : '/'
+                    }`);
             })
             .catch(error => {
                 toast(error.message);
@@ -93,6 +116,13 @@ const Login = () => {
                         <p className='text-center mt-3'>Don’t Have An Account ? <Link className='text-secondary' to={'/register'}>Click to Register</Link></p>
 
                     </fieldset>
+
+                    {
+                        error
+                        ? <p className='text-secondary'>{error}</p>
+                        : ''
+                    }
+
                 </form>
                 <p className='text-center'>or</p>
                 <div className='flex justify-center pb-5'>
