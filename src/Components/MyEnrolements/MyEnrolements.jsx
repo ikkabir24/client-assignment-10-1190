@@ -5,22 +5,24 @@ import { toast } from 'react-toastify';
 
 const MyEnrolements = () => {
 
-    const {user} = use(AuthContext);
+    const { user } = use(AuthContext);
     const [myEnrolements, setMyEnrolements] = useState([])
     const [refetch, setRefetch] = useState(true);
 
-    useEffect(()=>{
-        axios.get(`http://localhost:3000/enrolements?email=${user.email}`)
-        .then(axiosData=>{
-            setMyEnrolements(axiosData.data);
-        })
+    useEffect(() => {
+        if (user?.email) {
+            axios.get(`http://localhost:3000/enrolements?email=${user.email}`)
+                .then(axiosData => {
+                    setMyEnrolements(axiosData.data);
+                })
+        }
     }, [user?.email, refetch])
 
-    const handleDeleteCourse = (id) =>{
+    const handleDeleteCourse = (id) => {
         axios.delete(`http://localhost:3000/enrolements/${id}`)
-        .then(()=>{
-            toast('Successfully Unsubscribed..!')
-        })
+            .then(() => {
+                toast('Successfully Unsubscribed..!')
+            })
     }
 
     return (
@@ -40,9 +42,10 @@ const MyEnrolements = () => {
                         </div>
 
                         <div className="flex flex-col md:flex-row gap-2 mt-4 md:mt-0">
-                            <button onClick={()=>{
-                                handleDeleteCourse(course._id); 
-                                setRefetch(!refetch)}} className="btn btn-error btn-sm">
+                            <button onClick={() => {
+                                handleDeleteCourse(course._id);
+                                setRefetch(!refetch)
+                            }} className="btn btn-error btn-sm">
                                 Delete
                             </button>
                         </div>

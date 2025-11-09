@@ -26,6 +26,9 @@ const CourseDetails = () => {
         .then(()=>{
             toast('Successfully Enrolled..!');
         })
+        .catch(error=>{
+            toast(error.message)
+        })
     }
 
     return (
