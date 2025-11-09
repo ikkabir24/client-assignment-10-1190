@@ -6,10 +6,12 @@ import LoadingPage from '../LoadingPage/LoadingPage';
 
 const AllCourses = () => {
 
+    const categories = useLoaderData();
+
     const [loading, setLoading] = useState(true);
     const [courses, setCourses] = useState([]);
+    const [active, setActive] = useState(categories[0]._id)
 
-    const categories = useLoaderData();
 
     useEffect(() => {
         axios.get('http://localhost:3000/courses')
@@ -47,9 +49,9 @@ const AllCourses = () => {
                 <div className='flex flex-col space-y-2 p-3'>
                     {
                         categories.map(cat => <button
-                            onClick={() => handleCategory(cat.category)}
+                            onClick={() => {handleCategory(cat.category); setActive(cat._id)}}
                             key={cat._id}
-                            className='btn btn-outline btn-light justify-start text-start'>{cat.category_title}</button>
+                            className={`btn btn-outline btn-light justify-start text-start ${cat._id===active && 'bg-indigo-400 text-white'}`}>{cat.category_title}</button>
                         )
                     }
                 </div>

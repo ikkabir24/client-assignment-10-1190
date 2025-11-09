@@ -21,7 +21,8 @@ const MyEnrolements = () => {
     const handleDeleteCourse = (id) => {
         axios.delete(`http://localhost:3000/enrolements/${id}`)
             .then(() => {
-                toast('Successfully Unsubscribed..!')
+                toast('Successfully Unsubscribed..!');
+                setRefetch(!refetch);
             })
     }
 
@@ -44,7 +45,6 @@ const MyEnrolements = () => {
                         <div className="flex flex-col md:flex-row gap-2 mt-4 md:mt-0">
                             <button onClick={() => {
                                 handleDeleteCourse(course._id);
-                                setRefetch(!refetch)
                             }} className="btn btn-error btn-sm">
                                 Delete
                             </button>

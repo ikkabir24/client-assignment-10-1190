@@ -32,7 +32,7 @@ const CourseDetails = () => {
     }
 
     return (
-        <div className="max-w-4xl mx-auto bg-base-200 p-3 rounded-lg shadow-lg overflow-hidden md:flex">
+        <div className="max-w-4xl mx-auto bg-base-200 p-3 rounded-lg shadow-lg overflow-hidden md:flex my-5">
             <div className="md:w-1/2 h-64 md:h-auto">
                 <img
                     src={course.imageUrl}
