@@ -1,16 +1,23 @@
-# React + Vite
+### SkillNest – Learn. Share. Grow Together.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Site:** 
 
-Currently, two official plugins are available:
+SkillNest is a comunity-driven platform designed to connect learners and instructors through skill-sharing. Built with React, Tailwind CSS, Firebase, and AOS, it offers a responsive and engaging experience for users to explore, create, and manage courses.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+# Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+● Explore a curated list of popular courses across various categories including tech, design, and personal development.
 
-## Expanding the ESLint configuration
+● Discover top-rated instructors with detailed profiles, expertise highlights, and trust-building badges.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+● Authenticated users can create, edit, and manage their own courses with a streamlined interface.
+
+● Secure login and registration powered by Firebase Authentication, with protected routes for dashboard access.
+
+● Smooth scroll-triggered animations using AOS to enhance visual engagement and user experience.
+
+---
+
+
+This project is build using React, Tailwind CSS, DaisyUI, Firebase, and Vite.

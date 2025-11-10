@@ -12,6 +12,7 @@ import CourseDetails from "../Components/CourseDetails/CourseDetails";
 import CreateCourse from "../Components/MyCreations/CreateCourse";
 import UpdateCourse from "../Components/MyCreations/UpdateCourse";
 import MyEnrolements from "../Components/MyEnrolements/MyEnrolements";
+import Error from "../Components/ErrorPage/Error";
 
 const router = createBrowserRouter(
     [
@@ -50,7 +51,6 @@ const router = createBrowserRouter(
                     Component: Dashboard,
                     children: [
                         {
-                            index: true,
                             path: '/dashboard/myCreations',
                             element: <PrivateRoute><MyCreations></MyCreations></PrivateRoute>
                         },
@@ -67,6 +67,10 @@ const router = createBrowserRouter(
                 {
                     path: "/register",
                     Component: Register,
+                },
+                {
+                    path: "/*",
+                    Component: Error,
                 },
             ]
         }
