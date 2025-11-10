@@ -31,7 +31,7 @@ const Dashboard = () => {
     return (
         <div className='p-3'>
             <div className='flex justify-between'>
-                <div className='flex gap-2'>
+                <div className='flex flex-col md:flex-row gap-2'>
                     {
                         user && <NavLink className={'btn btn-outline btn-light justify-start text-start'} to={'/dashboard/myCreations'}>My Courses</NavLink>
                     }
