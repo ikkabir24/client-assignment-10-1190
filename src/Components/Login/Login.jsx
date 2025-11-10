@@ -29,7 +29,6 @@ const Login = () => {
 
         if (!hasUppercase || !hasLowercase || !isLongEnough) {
             setError('Password must contain at least one uppercase letter, one lowercase letter, and be at least 6 characters long.');
-            
             return;
         }
 

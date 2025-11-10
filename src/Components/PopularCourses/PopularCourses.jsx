@@ -51,9 +51,13 @@ const PopularCourses = () => {
                                     />
                                 </div>
                                 <div className="card-actions justify-between items-center mt-4">
-                                    <span className="badge badge-outline">
-                                        {course.isfeatured ? "Trending" : ""}
-                                    </span>
+                                 
+                                    {
+                                        course.isfeatured
+                                        ? <span className="badge badge-outline">Trending</span>
+                                        : <div></div>
+                                    }
+                                    
                                     <Link
                                         to={`/courseDetails/${course._id}`}
                                         className="btn btn-sm btn-primary"
