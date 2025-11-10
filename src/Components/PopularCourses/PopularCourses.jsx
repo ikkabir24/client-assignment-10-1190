@@ -43,7 +43,7 @@ const PopularCourses = () => {
                                 <p className="text-sm text-gray-400">{course.category_title}</p>
                                 <div>
                                     <img
-                                        className="w-full object-cover"
+                                        className="w-[250px] h-[250px] object-cover"
                                         src={course.imageUrl}
                                         alt={course.title}
                                         data-aos="zoom-in"

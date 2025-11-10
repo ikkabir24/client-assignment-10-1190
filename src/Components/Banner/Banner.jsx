@@ -15,7 +15,7 @@ const Banner = () => {
 
 
   return (
-    <div className="hero min-h-[70vh] bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white">
+    <div className="hero min-h-[70vh] bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 text-white">
       <div className="hero-content text-center">
         <div className="max-w-2xl" data-aos="fade-up">
           <h1 className="text-6xl font-bold font-serif drop-shadow-md" data-aos="zoom-in">SkillNest</h1>
@@ -26,10 +26,10 @@ const Banner = () => {
             </Link>
             {user
               ? <Link to="/createCourse">
-                <button className="btn btn-light text-indigo-600">Create A Course</button>
+                <button className="btn btn-light text-gray-500">Create A Course</button>
               </Link>
               : <Link to="/register">
-                <button className="btn btn-light text-indigo-600">Create A Course</button>
+                <button className="btn btn-light text-gray-500">Create A Course</button>
               </Link>
             }
           </div>
