@@ -26,16 +26,8 @@ const router = createBrowserRouter(
                 {
                     path: '/allCourses',
                     Component: AllCourses,
-                    loader: ()=> fetch('http://localhost:3000/categories'),
+                    loader: () => fetch('http://localhost:3000/categories'),
                     HydrateFallback: LoadingPage
-                },
-                {
-                    path: '/myCreations',
-                    element: <PrivateRoute><MyCreations></MyCreations></PrivateRoute>
-                },
-                {
-                    path: '/myEnrolements',
-                    element: <PrivateRoute><MyEnrolements></MyEnrolements></PrivateRoute>
                 },
                 {
                     path: '/createCourse',
@@ -43,19 +35,30 @@ const router = createBrowserRouter(
                 },
                 {
                     path: '/updateCourse/:id',
-                    loader:({params})=>fetch(`http://localhost:3000/courses/${params.id}`),
+                    loader: ({ params }) => fetch(`http://localhost:3000/courses/${params.id}`),
                     HydrateFallback: LoadingPage,
                     element: <PrivateRoute><UpdateCourse></UpdateCourse></PrivateRoute>
                 },
                 {
                     path: '/courseDetails/:id',
-                    loader: ({params})=>fetch(`http://localhost:3000/courses/${params.id}`),
-                    HydrateFallback:LoadingPage,
+                    loader: ({ params }) => fetch(`http://localhost:3000/courses/${params.id}`),
+                    HydrateFallback: LoadingPage,
                     element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>
                 },
                 {
                     path: '/dashboard',
-                    Component: Dashboard
+                    Component: Dashboard,
+                    children: [
+                        {
+                            index: true,
+                            path: '/dashboard/myCreations',
+                            element: <PrivateRoute><MyCreations></MyCreations></PrivateRoute>
+                        },
+                        {
+                            path: '/dashboard/myEnrolements',
+                            element: <PrivateRoute><MyEnrolements></MyEnrolements></PrivateRoute>
+                        },
+                    ]
                 },
                 {
                     path: "/login",

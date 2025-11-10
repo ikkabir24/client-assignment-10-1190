@@ -30,9 +30,8 @@ const MyCreations = () => {
 
     return (
         <div>
-            <div className='flex justify-between items-center p-3'>
+            <div className='p-3'>
                 <h1 className='font-semibold text-lg'>My Courses: {myCourse.length}</h1>
-                <Link to='/createCourse' className="btn btn-outline btn-light">Create a Course</Link>
             </div>
 
 

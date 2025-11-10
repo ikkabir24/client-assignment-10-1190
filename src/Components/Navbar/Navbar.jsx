@@ -21,12 +21,12 @@ const Navbar = () => {
     const links = <ul className='flex flex-col md:flex-row space-x-3'>
         <NavLink to={'/'}>Home</NavLink>
         <NavLink to={'/allCourses'}>All Courses</NavLink>
-        {
+        {/* {
             user && <NavLink to={'/myCreations'}>My Courses</NavLink>
         }
         {
             user && <NavLink to={'/MyEnrolements'}>My Enrolements</NavLink>
-        }
+        } */}
         <NavLink to={'/dashboard'}>Dashboard</NavLink>
     </ul>
 
