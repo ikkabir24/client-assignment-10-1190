@@ -8,7 +8,7 @@ const TopInstructors = () => {
 
     useEffect(() => {
         AOS.init({ duration: 1000 });
-        axios.get('http://localhost:3000/topInstructors')
+        axios.get('https://skills-nest-server.vercel.app/topInstructors')
             .then(axiosData => setInstructors(axiosData.data));
     }, []);
 

@@ -16,8 +16,6 @@ const Navbar = () => {
         localStorage.setItem("theme", theme)
     }, [theme])
 
-    console.log(user)
-
     const links = <ul className='flex flex-col md:flex-row space-x-3'>
         <NavLink to={'/'}>Home</NavLink>
         <NavLink to={'/allCourses'}>All Courses</NavLink>
@@ -33,7 +31,6 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut()
             .then(result => {
-                console.log(result);
                 toast('Logged out successfully..!')
             })
             .catch(error => {

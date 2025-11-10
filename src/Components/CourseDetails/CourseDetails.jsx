@@ -12,7 +12,6 @@ const CourseDetails = () => {
     const {user} = use(AuthContext);
 
     const course = useLoaderData();
-    console.log(course);
 
     const handleEnroll = () => {
         
@@ -22,7 +21,7 @@ const CourseDetails = () => {
             enroledBy: user.email
         }
         
-        axios.post('http://localhost:3000/enrolements', newEnrol)
+        axios.post('https://skills-nest-server.vercel.app/enrolements', newEnrol)
         .then(()=>{
             toast('Successfully Enrolled..!');
         })

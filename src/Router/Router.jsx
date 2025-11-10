@@ -27,7 +27,7 @@ const router = createBrowserRouter(
                 {
                     path: '/allCourses',
                     Component: AllCourses,
-                    loader: () => fetch('http://localhost:3000/categories'),
+                    loader: () => fetch('https://skills-nest-server.vercel.app/categories'),
                     HydrateFallback: LoadingPage
                 },
                 {
@@ -36,13 +36,13 @@ const router = createBrowserRouter(
                 },
                 {
                     path: '/updateCourse/:id',
-                    loader: ({ params }) => fetch(`http://localhost:3000/courses/${params.id}`),
+                    loader: ({ params }) => fetch(`https://skills-nest-server.vercel.app/courses/${params.id}`),
                     HydrateFallback: LoadingPage,
                     element: <PrivateRoute><UpdateCourse></UpdateCourse></PrivateRoute>
                 },
                 {
                     path: '/courseDetails/:id',
-                    loader: ({ params }) => fetch(`http://localhost:3000/courses/${params.id}`),
+                    loader: ({ params }) => fetch(`https://skills-nest-server.vercel.app/courses/${params.id}`),
                     HydrateFallback: LoadingPage,
                     element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>
                 },

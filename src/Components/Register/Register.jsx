@@ -4,7 +4,7 @@ import { MdOutlineRemoveRedEye } from 'react-icons/md';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
 import LoadingPage from '../LoadingPage/LoadingPage';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Register = () => {
 
@@ -54,7 +54,7 @@ const Register = () => {
                             }`)
                     })
                     .catch(error => {
-                        console.log(error.message)
+                        ToastContainer(error.message)
                     })
 
             })

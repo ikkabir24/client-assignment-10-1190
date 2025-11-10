@@ -28,7 +28,7 @@ const UpdateCourse = () => {
             title, imageUrl, price, courseDuration, category_title, category, description, isfeatured: false, ownerEmail, rating
         }
 
-        axios.patch(`http://localhost:3000/courses/${course._id}`, newCourse)
+        axios.patch(`https://skills-nest-server.vercel.app/courses/${course._id}`, newCourse)
         .then(()=>{
             toast('Updated Successfully..!')
         })

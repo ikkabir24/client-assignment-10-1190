@@ -29,16 +29,13 @@ const CreateCourse = () => {
             title, imageUrl, price, courseDuration, category_title, category, description, isfeatured: false, ownerEmail, rating
         }
 
-        axios.post('http://localhost:3000/courses', newCourse)
+        axios.post('https://skills-nest-server.vercel.app/courses', newCourse)
             .then(() => {
                 toast("Congratulations, You've successfully created your course..!")
             })
             .catch(error => {
-                toast(error.message)
-                console.log(error)
+                toast(error.message);
             })
-
-        console.log(newCourse);
     }
 
     const handleBack = () => {

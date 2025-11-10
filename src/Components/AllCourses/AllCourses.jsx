@@ -14,7 +14,7 @@ const AllCourses = () => {
 
 
     useEffect(() => {
-        axios.get('http://localhost:3000/courses')
+        axios.get('https://skills-nest-server.vercel.app/courses')
             .then(axiosData => {
                 setCourses(axiosData.data);
                 setLoading(false);
@@ -26,7 +26,7 @@ const AllCourses = () => {
     }, []);
 
     const handleCategory = (category) =>{
-        axios.get(`http://localhost:3000/courses?category=${category}`)
+        axios.get(`https://skills-nest-server.vercel.app/courses?category=${category}`)
         .then(axiosData => {
                 setCourses(axiosData.data);
                 setLoading(false);

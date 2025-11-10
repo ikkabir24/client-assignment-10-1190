@@ -10,22 +10,28 @@ const MyCreations = () => {
     const { user } = use(AuthContext);
 
     const [myCourse, setMyCourse] = useState([]);
-    const [refetch, setRefetch] = useState(true)
+    const [refetch, setRefetch] = useState(true);
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         if (user?.email) {
-            axios.get(`http://localhost:3000/courses?email=${user.email}`)
+            axios.get(`https://skills-nest-server.vercel.app/courses?email=${user.email}`)
                 .then(axiosData => {
-                    setMyCourse(axiosData.data)
+                    setMyCourse(axiosData.data);
+                    setLoading(false)
                 })
         }
     }, [user?.email, refetch])
 
     const handleDeleteCourse = (id) => {
-        axios.delete(`http://localhost:3000/courses/${id}`)
+        axios.delete(`https://skills-nest-server.vercel.app/courses/${id}`)
         .then(()=>{
             toast("Deleted Successfully..!")
         })
+    }
+
+    if(loading){
+        return <LoadingPage></LoadingPage>
     }
 
     return (

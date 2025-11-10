@@ -1,6 +1,6 @@
 ### SkillNest – Learn. Share. Grow Together.
 
-**Live Site:** 
+**Live Site: https://skills-nest-client.web.app/ ** 
 
 SkillNest is a comunity-driven platform designed to connect learners and instructors through skill-sharing. Built with React, Tailwind CSS, Firebase, and AOS, it offers a responsive and engaging experience for users to explore, create, and manage courses.
 

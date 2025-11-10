@@ -2,30 +2,36 @@ import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import LoadingPage from '../LoadingPage/LoadingPage';
 
 const MyEnrolements = () => {
 
     const { user } = use(AuthContext);
     const [myEnrolements, setMyEnrolements] = useState([])
     const [refetch, setRefetch] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (user?.email) {
-            axios.get(`http://localhost:3000/enrolements?email=${user.email}`)
+            axios.get(`https://skills-nest-server.vercel.app/enrolements?email=${user.email}`)
                 .then(axiosData => {
                     setMyEnrolements(axiosData.data);
+                    setLoading(false);
                 })
         }
     }, [user?.email, refetch])
 
     const handleDeleteCourse = (id) => {
-        axios.delete(`http://localhost:3000/enrolements/${id}`)
+        axios.delete(`https://skills-nest-server.vercel.app/enrolements/${id}`)
             .then(() => {
                 toast('Successfully Unsubscribed..!');
                 setRefetch(!refetch);
             })
     }
 
+    if(loading){
+        return <LoadingPage></LoadingPage>
+    }
     return (
         <div className='p-3'>
             <h1 className='text-lg font-semibold'>My Enrolments: {myEnrolements.length}</h1>

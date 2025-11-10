@@ -10,7 +10,7 @@ const PopularCourses = () => {
     const [courses, setCourses] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3000/popular')
+        axios.get('https://skills-nest-server.vercel.app/popular')
             .then(axiosData => {
                 setCourses(axiosData.data);
             })
@@ -18,7 +18,7 @@ const PopularCourses = () => {
 
     useEffect(() => {
         AOS.init({ duration: 1000 });
-        axios.get('http://localhost:3000/popular')
+        axios.get('https://skills-nest-server.vercel.app/popular')
             .then(axiosData => {
                 setCourses(axiosData.data);
             });
